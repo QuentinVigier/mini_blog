@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+<div class="container mx-auto px-4 mt-16">
+        <h1 class="text-3xl font-bold mb-8">Tout les articles</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for article in allArticles %}
+                <div>
+                    {% include 'components/article_card.html.twig' with {'article': article} %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

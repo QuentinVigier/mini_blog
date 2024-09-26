@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+<div class="container mx-auto px-4 py-8 mt-32">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="{{ asset('/default.jpg') }}" alt="Image par défaut" class="w-full h-64 object-cover">
+        
+        <div class="p-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ article.title }}</h1>
+            
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <span class="text-sm text-gray-600">Publié le {{ article.createdAt|date('d/m/Y à H:i') }}</span>
+                    {% if article.creator %}
+                        <p class="text-sm text-gray-700 mt-1">Par {{ article.creator.email }}</p>
+                    {% endif %}
+                </div>
+                {% if article.isPremium %}
+                    <div class="flex items-center gap-2 px-3 py-1 text-sm bg-yellow-100 rounded-full">
+                        {{ ux_icon('mdi:star-outline', { 'class': 'h-4 w-4' }) }}
+                        Article Premium
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="prose max-w-none">
+                {{ article.content|raw }}
+            </div>
+            <p class="mt-6 text-sm text-gray-600">Dernière mise à jour : {{ article.createdAt|date('d/m/Y à H:i') }}</p>
+        </div>
+    </div>
+    
+    <div class="mt-8 text-center">
+        <a href="{{ path('app_article_all') }}" class="inline-block bg-blue-600 text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+            Retour à la liste des articles
+        </a>
+    </div>
+</div>
+{% endblock %}
