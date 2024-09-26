@@ -1,0 +1,12 @@
+{# templates/partials/_login_logout_icon.html.twig #}
+<div class="login-logout-icon">
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}" title="Déconnexion">
+            <i class="fas fa-sign-out-alt text-white"></i>
+        </a>
+    {% else %}
+        <a href="{{ path('app_login') }}" title="Connexion">
+            <i class="fas fa-sign-in-alt text-white"></i>
+        </a>
+    {% endif %}
+</div>

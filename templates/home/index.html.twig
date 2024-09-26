@@ -25,7 +25,7 @@
 
         <!-- Appel à l'action pour la page des articles -->
         <div class="text-center my-8">
-            <a href="/articles" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition duration-300 inline-block">
+            <a href="{{ path('app_article_all') }}" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition duration-300 inline-block">
                 Voir tous nos articles
             </a>
         </div>
@@ -34,7 +34,7 @@
         <div class="bg-yellow-100 border border-yellow-400 rounded p-6 my-8">
             <h2 class="text-2xl font-bold text-yellow-800 mb-4">Devenez membre premium !</h2>
             <p class="text-yellow-700 mb-4">Accédez à du contenu exclusif et bénéficiez d'avantages uniques.</p>
-            <a href="/premium" class="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition duration-300 inline-block">
+            {# <a href="{{ path('app_payment') }}" class="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition duration-300 inline-block"> #}
                 Rejoindre maintenant
             </a>
         </div>
